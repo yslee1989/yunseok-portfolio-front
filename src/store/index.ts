@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    person: {}
+    person: null
   },
   mutations: {
     setPerson: (state, payload) => state.person = payload
@@ -15,7 +15,7 @@ export default new Vuex.Store({
     getPersonInfo: async injectee => {
       const response = {
         name: '이윤석',
-        image: require('../assets/이윤석2.jpg')
+        image: require('../assets/이윤석.jpg')
       }
       injectee.state.person = response
     }

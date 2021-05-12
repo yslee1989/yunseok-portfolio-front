@@ -5,7 +5,6 @@
         <div>
             <span>나이 </span>
             <span>{{myAge}}</span><br>
-            <div>나라: {{country}}</div>
         </div>
     </div>
 </template>
@@ -21,10 +20,6 @@ import {Vue, Component, Prop} from 'vue-property-decorator'
 export default class Information extends Vue {
     @Prop() myAge
     @Prop() image
-
-    get country() {
-        return this.$store.state.person.location?.country
-    }
 }
 </script>
 
