@@ -1,11 +1,11 @@
 <template>
   <div class="about">
+    <information :myAge="age" :image="imageSource"/>
     <h1>이것은 {{name}}의 About 페이지 입니다.</h1>
     <button @click="changeName">이름바꾸기</button><br>
     <button @click="age++">+</button><br>
     <button @click="readPerson">사용자정보 읽기</button><br>
     <button @click="countryIsKorea">국적 = 한국</button>
-    <information :myAge="age" :image="imageSource"/>
   </div>
 </template>
 

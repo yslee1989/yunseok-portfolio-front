@@ -13,9 +13,11 @@ export default new Vuex.Store({
   },
   actions: {
     getPersonInfo: async injectee => {
-      const response = await axios.get('https://randomuser.me/api/')
-      console.log(response)
-      injectee.commit('setPerson', response.data.results[0])
+      const response = {
+        name: '이윤석',
+        image: require('../assets/이윤석2.jpg')
+      }
+      injectee.state.person = response
     }
   },
   modules: {

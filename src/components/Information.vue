@@ -1,8 +1,8 @@
 <template>
     <div>
+        <profile :imageSource="image"/>
         <div>나에 대한 정보</div>
         <div>
-            <profile :imageSource="image"/>
             <span>나이 </span>
             <span>{{myAge}}</span><br>
             <div>나라: {{country}}</div>
