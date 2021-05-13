@@ -1,11 +1,15 @@
 <template>
   <div class="about">
-    <information :myAge="age" :image="imageSource"/>
-    <h1>이것은 {{name}}의 About 페이지 입니다.</h1>
-    <button @click="changeName">이름바꾸기</button><br>
-    <button @click="age++">+</button><br>
-    <button @click="readPerson">사용자정보 읽기</button><br>
-    <button @click="countryIsKorea">국적 = 한국</button>
+    <profile/>
+    <navigation/>
+    <div class="main">
+      <introduction/>
+      <h1>이것은 {{name}}의 About 페이지 입니다.</h1>
+      <button @click="changeName">이름바꾸기</button><br>
+      <button @click="age++">+</button><br>
+      <button @click="readPerson">사용자정보 읽기</button><br>
+      <button @click="countryIsKorea">국적 = 한국</button>
+    </div>
   </div>
 </template>
 
@@ -14,24 +18,21 @@ import {Component, Vue} from "vue-property-decorator";
 import axios from 'axios';
 
 @Component({
-  components: {
-    information: require('../components/Information').default
-  }
+    components: {
+        profile: require('../components/Profile').default,
+        navigation: require('../components/Navigation').default,
+        introduction: require('../components/Introduction').default
+    }
 })
+
 export default class About extends Vue {
   name = '이윤석'
   age = 33
   imageSource = require('../assets/이윤석2.jpg')
-  //imageSource = 'https://pbs.twimg.com/media/DB65jvKUAAA-Qpn?format=jpg&name=medium'
 
   changeName() {
     this.name = '신철민'
   }
-
-  // async beforeMount() {
-  //   await this.$store.dispatch('getPersonInfo')
-    
-  // }
 
   async readPerson() {
     await this.$store.dispatch('getPersonInfo')
@@ -45,7 +46,7 @@ export default class About extends Vue {
 </script>
 
 <style scoped lang="scss">
-.about {
-  background-color: yellow;
+.main {
+  background-color: rgb(56, 56, 56);
 }
 </style>

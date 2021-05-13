@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="person" class="face-image" :style="{backgroundImage: 'url(' + person.image + ')'}">
+        <div v-if="person.name" class="face-image" :style="{backgroundImage: 'url(' + person.image + ')'}">
             <div class="name">개발자 <b>{{person.name}}</b> 입니다</div>
         </div>
     </div>
