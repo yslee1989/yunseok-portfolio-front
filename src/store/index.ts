@@ -6,7 +6,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    person: {}
+    person: {
+      name: '',
+      projects: []
+    }
   },
   mutations: {
     setPerson: (state, payload) => state.person = payload
@@ -16,16 +19,29 @@ export default new Vuex.Store({
       const response = {
         name: '이윤석',
         image: require('../assets/이윤석.jpg'),
-        intro: '안녕하세요. 이윤석입니다. \nFullstack 개발자를 목표로 공부하고 있습니다',
+        intro: '안녕하세요. 이윤석입니다. \nFullstack 개발자를 목표로 공부하고 있습니다.',
         projects: [{
-          name: 'Front 개발',
-          desc: '자세한 내용'
+          name: '[Front] LinkedIn - Dev Ver.',
+          desc: '자세한 내용',
+          framework: ['VueJS', 'Vanilla Script'],
+          language: ['Javascript', 'Java', 'Python', 'Ruby'],
+          layer: 'Front'
         }, {
-          name: 'Back 개발',
-          desc: '자세한 내용2'
+          name: '[Front] LinkedIn2 - Dev Ver.',
+          desc: '자세한 내용2',
+          framework: ['NodeJS', 'NestJS'],
+          language: ['Javascript', 'Java', 'Python', 'Ruby'],
+          layer: 'Front'
+        }, {
+          name: '[Back] LinkedIn - Dev Ver.',
+          desc: '자세한 내용3',
+          framework: ['NodeJS', 'NestJS'],
+          language: ['Javascript', 'Java', 'Python', 'Ruby'],
+          layer: 'Back'
         }]
       }
-      injectee.state.person = response
+      injectee.commit('setPerson', response)
+      console.log('state setup')
     }
   },
   modules: {
