@@ -10,7 +10,7 @@ import { Vue, Component } from 'vue-property-decorator'
 @Component
 
 export default class Piechart extends Vue {
-    @Prop({default: [{Javascript: 3, Java: 2, Python: 5}]}) data
+    //@Prop({default: [{Javascript: 3, Java: 2, Python: 5}]}) data
 }
 </script>
 

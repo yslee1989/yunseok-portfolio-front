@@ -20,7 +20,7 @@ export default class Introduction extends Vue {
 <style scoped lang="scss">
 h1 {
     margin: 0px;
-    margin-bottom: 15px;
+    padding: 100px 0px 15px;
 }
 .description {
     white-space: pre-wrap;

@@ -59,7 +59,7 @@ export default class About extends Vue {
 
 <style scoped lang="scss">
 .main {
-  background-color: rgb(56, 56, 56);
+  background-color: rgb(80, 80, 80);
   color: white;
 }
 </style>
