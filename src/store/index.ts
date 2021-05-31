@@ -16,7 +16,9 @@ export default new Vuex.Store({
   },
   actions: {
     getPersonInfo: async injectee => {
-      const response = {
+      const response = await axios.get('http://localhost:3000/yunseok');
+      /*
+      {
         name: '이윤석',
         image: require('../assets/이윤석.jpg'),
         intro: '안녕하세요. 이윤석입니다. \nFullstack 개발자를 목표로 공부하고 있습니다.',
@@ -40,8 +42,14 @@ export default new Vuex.Store({
           layer: 'Back'
         }]
       }
-      injectee.commit('setPerson', response)
-      console.log('state setup')
+      */
+      
+      if(response.status==200){
+        response.data.image = require('../assets/이윤석.jpg')
+        injectee.commit('setPerson', response.data)
+      }else{
+        console.log('통신 문제가 발생했습니다.')
+      }
     }
   },
   modules: {
