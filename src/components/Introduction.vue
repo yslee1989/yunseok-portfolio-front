@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Introduction</h1>
-        <span class="description">{{person.intro}}</span>
+        <span class="description">{{person.desc}}</span>
     </div>
 </template>
 

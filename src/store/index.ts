@@ -16,7 +16,7 @@ export default new Vuex.Store({
   },
   actions: {
     getPersonInfo: async injectee => {
-      const response = await axios.get('http://localhost:3000/yunseok');
+      const response = await axios.get('http://localhost:3000/user/이윤석');
       /*
       {
         name: '이윤석',
@@ -43,13 +43,24 @@ export default new Vuex.Store({
         }]
       }
       */
-      
+      const response2 = await axios.get('http://localhost:3000/user/이윤석/projects');
+
       if(response.status==200){
         response.data.image = require('../assets/이윤석.jpg')
+        response.data.projects = [{
+          name: '[Front] LinkedIn - Dev Ver.',
+          desc: '자세한 내용',
+          framework: ['VueJS', 'Vanilla Script'],
+          language: ['Javascript', 'Java', 'Python', 'Ruby'],
+          layer: 'Front'
+        }]
         injectee.commit('setPerson', response.data)
       }else{
         console.log('통신 문제가 발생했습니다.')
       }
+    },
+    addProject: async (injectee, payload) => {
+      const response = await axios.post('http://localhost:3000/user/이윤석/projects', payload);
     }
   },
   modules: {
