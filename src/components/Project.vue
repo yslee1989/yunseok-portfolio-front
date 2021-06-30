@@ -33,15 +33,29 @@
             <div id='framework'>
                 <b>Framework </b>
                 <div>
-                    <input v-model='projectFramework'>
-                    <button @click='addFrameworkInput()'>+</button>
+                    <multiselect
+                        v-model = "selectedFrameworkOptions"
+                        label = "key"
+                        track-by = "value"
+                        :options = "frameworkOptions"
+                        :multiple = "true"
+                        :close-on-select = "false"
+                    >
+                    </multiselect>
                 </div>
             </div>
             <div id='language'>
                 <b>Language </b>
                 <div>
-                    <input v-model='projectLanguage'>
-                    <button @click='addLanguageInput'>+</button>
+                    <multiselect
+                        v-model = "selectedLanguageOptions"
+                        label = "key"
+                        track-by = "value"
+                        :options = "languageOptions"
+                        :multiple = "true"
+                        :close-on-select = "false"
+                    >
+                    </multiselect>
                 </div>
             </div>
             <div>
@@ -60,15 +74,29 @@
 
 <script>
 import { Vue, Component } from 'vue-property-decorator'
+import Multiselect from 'vue-multiselect'
 
-@Component
-
+@Component({
+    components: {Multiselect}
+})
 export default class Project extends Vue {
     isPopupVisible = false;
     projectName = '';
     projectDesc = '';
     projectFramework = '';
     projectLanguage = '';
+    frameworkOptions = [
+        {key: 'C++', value: '1'},
+        {key: 'C#', value: '2'},
+        {key: 'JAVA', value: '3'},
+    ]
+    selectedFrameworkOptions = []
+    languageOptions = [
+        {key: 'C++', value: '1'},
+        {key: 'C#', value: '2'},
+        {key: 'JAVA', value: '3'},
+    ]
+    selectedLanguageOptions = []
 
     get person() {
         return this.$store.state.person
@@ -96,6 +124,7 @@ export default class Project extends Vue {
 }
 </script>
 
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style scoped lang="scss">
 h1 {
     text-align: left;
@@ -143,14 +172,23 @@ table {
     left: 25%;
     width: 500px;
     height: 400px;
-    & * {
+    padding: 30px;
+    & > *:nth-child(n + 2) {
         margin-left: 20px;
     }
-    & div {
+    div {
         margin-top: 5px;
     }
+    
     background-color: white;
     color: black;
     text-align: left;
+
+    input {
+        width: 100%
+    }
+    textarea {
+        width: 100%
+    }
 }
 </style>
