@@ -2,10 +2,11 @@
   "name": "yunseok-portfolio-front",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "prebuild": "del /s /q docs",
+    "prebuild": "rmdir /s /q docs",
     "postbuild": "rename dist docs"
   },
   "dependencies": {
